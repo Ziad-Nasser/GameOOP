@@ -6,6 +6,7 @@ export class Ui {
       games += `
           <div class="col">
           <div data-id="${
+            //stores the value of data[i].id in the data-id the can access the value using dataset property
             data[i].id
           }"  class="card h-100 bg-transparent" role="button" ">
              <div  class="card-body">
@@ -20,7 +21,7 @@ export class Ui {
                       <span class="badge text-bg-primary p-2">Free</span>
                    </div>    
                    <p class="card-text small text-center opacity-50">
-                      ${data[i].short_description.split(" ", 8)}
+                      ${data[i].short_description.split(" ", 15)}
                    </p>    
                 </figcaption>
              </div>
