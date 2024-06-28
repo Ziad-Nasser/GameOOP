@@ -37,20 +37,25 @@ export class Ui {
   }
 
   displayDetails(data) {
+    let screenshots = ``;
     const content = `
-       <div class="col-md-4">
-       <img src="${data.thumbnail}" class="w-100" alt="image details" />
-    </div>
-    <div class="col-md-8">
-       <h3>Title: ${data.title}</h3>
-       <p>Category: <span class="badge text-bg-info"> ${data.genre}</span> </p>
-       <p>Platform: <span class="badge text-bg-info"> ${data.platform}</span> </p>
-       <p>Status: <span class="badge text-bg-info"> ${data.status}</span> </p>
-       <p class="small">${data.description}</p>
-       <a class="btn btn-outline-warning" target="_blank" href="${data.game_url}">Show Game</a>
-    </div>
-       
-       `;
+      <div class="col-md-4">
+      <img src="${data.thumbnail}" class="w-100" alt="image details" />
+   </div>
+   <div class="col-md-8">
+      <h3>Title: ${data.title}</h3>
+      <p>Category: <span class="badge text-bg-info"> ${data.genre}</span> </p>
+      <p>Platform: <span class="badge text-bg-info"> ${data.platform}</span> </p>
+      <p>Status: <span class="badge text-bg-info"> ${data.status}</span> </p>
+      <p class="small">${data.description}</p>
+      <a class="btn btn-outline-warning" target="_blank" href="${data.game_url}">Show Game</a>
+   </div>
+      
+      `;
+    for (let i = 0; i < data.screenshots.length; i++) {
+      screenshots += `<div class="py-4 px-2"><img class="w-100 img-fluid object-fit-cover" src="${data.screenshots[i].image}" alt=""></div>`;
+    }
     document.getElementById("detailsContent").innerHTML = content;
+    document.getElementById("details-photo").innerHTML = screenshots;
   }
 }
